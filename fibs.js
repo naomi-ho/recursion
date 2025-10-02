@@ -13,3 +13,18 @@ function fibs(n) {
   }
   return fibArray;
 }
+
+// recursive fibonacci sequence
+function fibsRec(n) {
+  if (n <= 0) return [0];
+  if (n === 1) return [0, 1];
+  if (n === 2) return [0, 1, 1];
+
+  // stores previous fib array
+  const prev = fibsRec(n - 1);
+
+  // spread operator creates new array with all previous elements + new one
+  // prev.length = number of elements in the array
+  // prev[prev.length - 1] = index of last element; prev[prev,length - 2] = index of second last element
+  return [...prev, prev[prev.length - 1] + prev[prev.length - 2]];
+}
